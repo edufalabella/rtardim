@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Página não encontrada — RTardim</title>
+  <meta name="description" content="A página que você procura não existe. Volte ao site RTardim e encontre nossos serviços de reforma de carroceria em Sumaré/SP.">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://www.rtardim.com.br/">
+  <link rel="icon" type="image/svg+xml" href="img/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --bg:#0a0a0a;--fg:#f4f4f4;--accent:#e52a00;--muted:#9a9a9a;
+      --font-sans:"Inter",system-ui,sans-serif;
+      --font-display:"Plus Jakarta Sans","Inter",system-ui,sans-serif;
+    }
+    html{height:100%}
+    body{
+      min-height:100%;
+      background:var(--bg);
+      color:var(--fg);
+      font-family:var(--font-sans);
+      -webkit-font-smoothing:antialiased;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      padding:2rem 1.25rem;
+      text-align:center;
+    }
+    /* background blobs */
+    body::before,body::after{
+      content:'';
+      position:fixed;border-radius:9999px;filter:blur(80px);pointer-events:none;
+      z-index:0;
+    }
+    body::before{top:-8rem;left:-8rem;width:480px;height:480px;background:rgba(225,6,0,.15)}
+    body::after{bottom:-8rem;right:-8rem;width:440px;height:440px;background:rgba(229,42,0,.1)}
+
+    .wrap{position:relative;z-index:1;max-width:28rem;width:100%}
+
+    .logo{
+      display:inline-flex;align-items:center;gap:.5rem;
+      margin-bottom:3rem;
+      text-decoration:none;color:var(--fg);
+    }
+    .logo-badge{
+      width:2.25rem;height:2.25rem;border-radius:.5rem;
+      background:linear-gradient(135deg,#e10600,#e52a00);
+      display:flex;align-items:center;justify-content:center;
+      font-family:var(--font-display);font-weight:800;font-size:.875rem;color:#fff;
+    }
+    .logo-text{font-family:var(--font-display);font-weight:800;font-size:1.25rem}
+
+    .code{
+      font-family:var(--font-display);
+      font-size:clamp(5rem,20vw,8rem);
+      font-weight:800;
+      line-height:1;
+      background:linear-gradient(135deg,#fff 0%,rgba(229,42,0,.7) 100%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+      margin-bottom:1rem;
+    }
+    h1{
+      font-family:var(--font-display);
+      font-size:clamp(1.25rem,4vw,1.75rem);
+      font-weight:700;margin-bottom:.875rem;
+    }
+    p{color:var(--muted);font-size:.9375rem;line-height:1.7;margin-bottom:2.5rem}
+
+    .actions{display:flex;flex-direction:column;gap:.75rem;align-items:center}
+    @media(min-width:400px){.actions{flex-direction:row;justify-content:center}}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+      min-height:48px;padding:.75rem 1.5rem;
+      border-radius:9999px;border:none;
+      font-family:var(--font-sans);font-size:.9375rem;font-weight:600;
+      cursor:pointer;text-decoration:none;
+      transition:filter .22s,background .22s;
+      width:100%;
+    }
+    @media(min-width:400px){.btn{width:auto}}
+    .btn-primary{background:#e52a00;color:#fff;box-shadow:0 0 40px rgba(229,42,0,.35)}
+    .btn-primary:hover{filter:brightness(1.1)}
+    .btn-ghost{background:rgba(255,255,255,.06);color:var(--fg);border:1px solid rgba(255,255,255,.15)}
+    .btn-ghost:hover{background:rgba(255,255,255,.1)}
+
+    .links{margin-top:3rem;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.5rem}
+    .links a{font-size:.875rem;color:var(--muted);transition:color .2s;text-decoration:none}
+    .links a:hover{color:var(--accent)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a href="/" class="logo" aria-label="RTardim — Página inicial">
+      <span class="logo-badge" aria-hidden="true">RT</span>
+      <span class="logo-text">RTardim</span>
+    </a>
+
+    <div class="code" aria-label="Erro 404">404</div>
+    <h1>Página não encontrada</h1>
+    <p>A página que você procura não existe ou foi movida.<br>Volte ao início e encontre tudo sobre reforma de carrocerias em Sumaré/SP.</p>
+
+    <div class="actions">
+      <a href="/" class="btn btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        Voltar ao início
+      </a>
+      <a href="/#contato" class="btn btn-ghost">
+        Falar com a equipe
+      </a>
+    </div>
+
+    <nav class="links" aria-label="Links rápidos">
+      <a href="/#sobre">Sobre</a>
+      <a href="/#servicos">Serviços</a>
+      <a href="/#cases">Cases</a>
+      <a href="/#contato">Contato</a>
+    </nav>
+  </div>
+</body>
+</html>

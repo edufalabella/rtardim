@@ -1,0 +1,130 @@
+# =====================================================
+#  RTardim — .htaccess
+#  Requer: Apache 2.4+ com mod_rewrite, mod_deflate,
+#          mod_expires, mod_headers habilitados
+# =====================================================
+
+Options -Indexes
+Options +FollowSymLinks
+
+# ─── Forçar HTTPS ────────────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Redireciona HTTP → HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # Redireciona www → non-www (ou o contrário — mantenha um padrão)
+  # Para usar www, inverta as duas linhas abaixo:
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+  # Remove trailing slash (exceto na raiz)
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} (.+)/$
+  RewriteRule ^ %1 [R=301,L]
+
+  # Página de erro personalizada
+  ErrorDocument 404 /404.html
+</IfModule>
+
+# ─── Compressão GZIP ─────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE font/woff2
+  AddOutputFilterByType DEFLATE font/woff
+</IfModule>
+
+# ─── Cache de Arquivos Estáticos ─────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # HTML — curto (conteúdo atualiza)
+  ExpiresByType text/html                 "access plus 1 hour"
+
+  # CSS e JS — longo (versionar via query string se precisar)
+  ExpiresByType text/css                  "access plus 1 year"
+  ExpiresByType application/javascript    "access plus 1 year"
+  ExpiresByType text/javascript           "access plus 1 year"
+
+  # Imagens
+  ExpiresByType image/jpeg                "access plus 1 year"
+  ExpiresByType image/png                 "access plus 1 year"
+  ExpiresByType image/webp                "access plus 1 year"
+  ExpiresByType image/avif                "access plus 1 year"
+  ExpiresByType image/svg+xml             "access plus 1 year"
+  ExpiresByType image/x-icon              "access plus 1 year"
+
+  # Fontes
+  ExpiresByType font/woff2                "access plus 1 year"
+  ExpiresByType font/woff                 "access plus 1 year"
+  ExpiresByType application/font-woff2    "access plus 1 year"
+
+  # XML (sitemap — diário)
+  ExpiresByType application/xml           "access plus 1 day"
+  ExpiresByType text/xml                  "access plus 1 day"
+</IfModule>
+
+# ─── Cache-Control Headers ───────────────────────
+<IfModule mod_headers.c>
+
+  # Segurança
+  Header always set X-Content-Type-Options    "nosniff"
+  Header always set X-Frame-Options           "SAMEORIGIN"
+  Header always set X-XSS-Protection         "1; mode=block"
+  Header always set Referrer-Policy           "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy        "camera=(), microphone=(), geolocation=()"
+
+  # HSTS — força HTTPS por 1 ano (ative só após confirmar que HTTPS está OK)
+  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+  # Remove headers que expõem info do servidor
+  Header unset X-Powered-By
+  Header unset Server
+
+  # Cache estático
+  <FilesMatch "\.(css|js|woff2|woff|jpg|jpeg|png|webp|avif|svg|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # HTML — sem cache (ou curto)
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+
+  # Sitemap e robots — cache de 1 dia
+  <FilesMatch "(sitemap\.xml|robots\.txt)$">
+    Header set Cache-Control "public, max-age=86400"
+  </FilesMatch>
+
+</IfModule>
+
+# ─── MIME Types ──────────────────────────────────
+<IfModule mod_mime.c>
+  AddType image/webp                   .webp
+  AddType image/avif                   .avif
+  AddType font/woff2                   .woff2
+  AddType application/javascript       .js
+  AddType text/css                     .css
+  AddType image/svg+xml                .svg
+</IfModule>
+
+# ─── Protege arquivos sensíveis ───────────────────
+<FilesMatch "(\.htaccess|\.htpasswd|\.env|\.git|composer\.json|package\.json)$">
+  Require all denied
+</FilesMatch>
+
+# ─── Evita acesso direto à pasta img por listing ─
+<IfModule mod_autoindex.c>
+  Options -Indexes
+</IfModule>

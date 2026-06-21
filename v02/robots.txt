@@ -1,0 +1,25 @@
+# =====================================================
+#  RTardim — robots.txt
+#  https://www.rtardim.com.br
+# =====================================================
+
+User-agent: *
+Allow: /
+
+# Bloqueia pastas que não devem ser indexadas
+Disallow: /assets/
+Disallow: /node_modules/
+Disallow: /.git/
+
+# Sitemap
+Sitemap: https://www.rtardim.com.br/sitemap.xml
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 5
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 10

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none">
+  <!-- =====================================================
+       RTardim Logo — substitua este arquivo pelo seu .svg
+       Dimensões recomendadas: 160×48 px (ou proporcional)
+       Coloque o arquivo em: img/logo.svg
+  ===================================================== -->
+
+  <!-- Badge quadrado -->
+  <rect x="0" y="4" width="40" height="40" rx="8"
+        fill="url(#logoGrad)"/>
+  <text x="20" y="30" text-anchor="middle"
+        font-family="'Plus Jakarta Sans',sans-serif"
+        font-weight="800" font-size="18" fill="#fff">RT</text>
+
+  <!-- Wordmark -->
+  <text x="50" y="32" font-family="'Plus Jakarta Sans',sans-serif"
+        font-weight="800" font-size="22" letter-spacing="-0.5"
+        fill="#f4f4f4">RTardim</text>
+
+  <defs>
+    <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#e10600"/>
+      <stop offset="100%" stop-color="#e52a00"/>
+    </linearGradient>
+  </defs>
+</svg>

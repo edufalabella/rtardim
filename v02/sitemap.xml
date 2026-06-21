@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- Página principal -->
+  <url>
+    <loc>https://www.rtardim.com.br/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+
+    <!-- Hero -->
+    <image:image>
+      <image:loc>https://www.rtardim.com.br/img/hero-bg.jpg</image:loc>
+      <image:title>RTardim — Reforma de Carrocerias Rodoviárias em Sumaré/SP</image:title>
+      <image:caption>Oficina RTardim especializada em reforma de carrocerias desde 2010</image:caption>
+    </image:image>
+
+    <!-- Sobre -->
+    <image:image>
+      <image:loc>https://www.rtardim.com.br/img/about.jpg</image:loc>
+      <image:title>Equipe RTardim — Especialistas em Reforma de Carroceria</image:title>
+      <image:caption>Equipe de mais de 40 especialistas da RTardim em Sumaré/SP</image:caption>
+    </image:image>
+
+    <!-- Cases -->
+    <image:image>
+      <image:loc>https://www.rtardim.com.br/img/case1.jpg</image:loc>
+      <image:title>Reforma de Sider — RTardim</image:title>
+      <image:caption>Renovação completa de frota sider para transportadora regional</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.rtardim.com.br/img/case2.jpg</image:loc>
+      <image:title>Reforma de Baú — RTardim</image:title>
+      <image:caption>Modernização de baús refrigerados para distribuição urbana</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.rtardim.com.br/img/case3.jpg</image:loc>
+      <image:title>Carroceria de Bebidas — RTardim</image:title>
+      <image:caption>Fabricação de carrocerias grade baixa para distribuidora de bebidas</image:caption>
+    </image:image>
+  </url>
+
+</urlset>
