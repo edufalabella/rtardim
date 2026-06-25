@@ -206,12 +206,16 @@ button { font-family: inherit; cursor: pointer; }
   position: fixed;
   top: 0; inset-inline: 0;
   z-index: 100;
-  transition: background var(--t), backdrop-filter var(--t);
+  background: rgba(6,6,6,.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid transparent;
+  transition: background var(--t), backdrop-filter var(--t), border-color var(--t);
 }
 #navbar.scrolled {
-  background: rgba(6,6,6,.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(6,6,6,.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border-bottom: 1px solid var(--border);
 }
 .nav-inner {
@@ -231,9 +235,9 @@ button { font-family: inherit; cursor: pointer; }
   flex-shrink: 0;
 }
 .nav-logo-img {
-  filter: brightness(0) invert(1);
   height: 2rem;
   width: auto;
+  mix-blend-mode: screen;
 }
 @media (min-width: 768px) { .nav-logo-img { height: 2.25rem; } }
 
@@ -357,7 +361,7 @@ button { font-family: inherit; cursor: pointer; }
   will-change: transform;
 }
 .hero-blob-1 {
-  top: -8rem; left: -8rem;
+  top: 4rem; left: -8rem;
   width: min(480px, 80vw); height: min(480px, 80vw);
   background: rgba(225,6,0,.18);
 }
@@ -744,7 +748,7 @@ footer { background: var(--navy); color: #fff; }
 @media (min-width: 1024px) { .footer-inner { grid-template-columns: 1.6fr 1fr 1fr 1.3fr; gap: 3rem; padding: 5rem 0; } }
 
 .footer-logo { display: flex; align-items: center; gap: .5rem; margin-bottom: 1rem; }
-.footer-logo-img { height: 1.875rem; width: auto; }
+.footer-logo-img { height: 1.875rem; width: auto; mix-blend-mode: screen; }
 .footer-desc { font-size: .875rem; color: rgba(255,255,255,.58); line-height: 1.75; max-width: 28ch; }
 .social-links { display: flex; gap: .625rem; margin-top: 1.25rem; }
 .social-link {

@@ -11,7 +11,7 @@ const CONFIG = {
    * Coloque APENAS os dígitos: DDI + DDD + número
    * Exemplo Brasil: 5519 + número (sem espaços ou traços)
    */
-  whatsappNumber: '5519938221928',
+  whatsappNumber: '5519998557607',
 
   /* Mensagem pré-preenchida no WhatsApp (opcional) */
   whatsappMessage: 'Olá! Gostaria de solicitar um orçamento para reforma de carroceria.',
